@@ -3,7 +3,7 @@
 
     "name": "Nicer Todoyu",
     "description": "Makes Todoyu nicer",
-    "version": "0.0.0",
+    "version": "0.1.0",
 
     "permissions": [],
 
@@ -13,7 +13,7 @@
 
     "content_scripts": [{
         "js": ["lib/jquery-1.11.1.min.js", "js/todoyu.js"],
-        "matches": ["https://sfp.todoyu.net/*"],
+        "matches": ["https://*.todoyu.net/*"],
         "run_at": "document_end"
     }]
 }
