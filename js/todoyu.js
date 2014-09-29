@@ -5,26 +5,28 @@ var nicerTodoyu = {};
 /**
  * Initialize all custom stuff
  */
-nicerTodoyu.init = function(){
+nicerTodoyu.init = function () {
+    nicerTodoyu.loadPreviousStates();
     nicerTodoyu.loadCss();
     nicerTodoyu.clickableTaskNumbers();
+    nicerTodoyu.hidableLeftBar();
+    nicerTodoyu.loadSvg();
 };
 
 
 /**
  *  Appends css files to header
  */
-nicerTodoyu.loadCss = function(){
-    var todoyuCssUrl = chrome.extension.getURL("css/todoyu.css");
-    $('<link rel="stylesheet" type="text/css" href="' + todoyuCssUrl + '" >').appendTo("head");
+nicerTodoyu.loadCss = function () {
+    $('<link rel="stylesheet" type="text/css" href="' + chrome.extension.getURL("css/todoyu.css") + '" >').appendTo("head");
 };
 
 
 /**
  *  Makes task numbers select on click for easy copying
  */
-nicerTodoyu.clickableTaskNumbers = function(){
-    $('body').on('click', '.taskNumber', function(e) {
+nicerTodoyu.clickableTaskNumbers = function () {
+    $('body').on('click', '.taskNumber', function (e) {
         var text = e.currentTarget;
         var range, selection;
 
@@ -41,3 +43,50 @@ nicerTodoyu.clickableTaskNumbers = function(){
         }
     });
 };
+
+/**
+ * Enables the hiding of the left bar
+ */
+nicerTodoyu.hidableLeftBar = function () {
+    var $panel = $('#panel'),
+        $toggler = $('<div class="panel-toggle">' +
+            '<i class="icon-plus"/>' +
+            '<i class="icon-minus"/>' +
+            '</div>');
+
+    $panel.before($toggler);
+
+    $toggler.on('click', function () {
+        var $body = $('body');
+        if ($body.is('.panelOff')) {
+            $body.removeClass('panelOff');
+            chrome.storage.local.set({
+                'panelOff': false
+            })
+        } else {
+            $body.addClass('panelOff')
+            chrome.storage.local.set({
+                'panelOff': true
+            })
+        }
+    });
+};
+
+
+/**
+ * Load some settings from the local storage
+ */
+nicerTodoyu.loadPreviousStates = function () {
+    chrome.storage.local.get(function (storage) {
+        if (storage['panelOff']) {
+            $('body').toggleClass('panelOff');
+        }
+    });
+    setTimeout(function () {
+        $('body').addClass('afterLoading');
+    }, 50);
+};
+
+
+
+nicerTodoyu.init();

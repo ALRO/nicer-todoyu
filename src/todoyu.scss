@@ -1,5 +1,118 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
+/* fancy fade in after css is loaded */
+
+body > * {
+  transition: opacity 0.6s;
+  opacity: 1 !important;
+}
+
+/* icons */
+[class^=icon-] {
+  background-size: 100%;
+  display: block;
+}
+.icon-minus {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMjIuMzU0cHgiIGhlaWdodD0iMjMuMDY2cHgiIHZpZXdCb3g9IjAgMCAyMi4zNTQgMjMuMDY2IiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAyMi4zNTQgMjMuMDY2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxyZWN0IHg9IjAiIHk9IjguOTY3IiB3aWR0aD0iMjIuMzU0IiBoZWlnaHQ9IjUuMTMyIi8+DQo8L3N2Zz4NCg==);
+}
+.icon-plus {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjQsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkNhcGFfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPHBhdGggZD0iTTQ5NiwxOTJIMzIwVjE2YzAtOC44MzYtNy4xNjQtMTYtMTYtMTZoLTk2Yy04LjgzNiwwLTE2LDcuMTY0LTE2LDE2djE3NkgxNmMtOC44MzYsMC0xNiw3LjE2NC0xNiwxNnY5Ng0KCWMwLDguODM2LDcuMTY0LDE2LDE2LDE2aDE3NnYxNzZjMCw4LjgzNiw3LjE2NCwxNiwxNiwxNmg5NmM4LjgzNiwwLDE2LTcuMTY0LDE2LTE2VjMyMGgxNzZjOC44MzYsMCwxNi03LjE2NCwxNi0xNnYtOTYNCglDNTEyLDE5OS4xNjQsNTA0LjgzNiwxOTIsNDk2LDE5MnoiLz4NCjwvc3ZnPg0K);}
+
+/* left bar toggle function */
+.panel-toggle {
+  height: 30px;
+  width: 30px;
+
+  position: absolute;
+  left: 230px;
+  top: 20px;
+
+  background: white;
+  border-radius: 5px 5px 0 0;
+
+  cursor: pointer;
+
+  i {
+    width: 16px;
+    height: 16px;
+    margin: 8px;
+
+    &.icon-plus {
+      display: none;
+    }
+  }
+}
+
+.afterLoading {
+  #panel,
+  #right,
+  .panel-toggle,
+  #box,
+  #header .inner,
+  #footer .inner {
+    transition: all 0.6s;
+    transition-timing-function: ease-in-out;
+  }
+}
+
+#header {
+  background: white;
+}
+
+#panel {
+  margin-top: 30px;
+  transform-origin: 100% 100%;
+}
+
+.panelOff {
+  .panel-toggle {
+    border-radius: 10px;
+    left: 240px;
+    i {
+      &.icon-minus {
+        display: none;
+      }
+      &.icon-plus {
+        display: block;
+      }
+    }
+  }
+  #panel {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  #box {
+    transform: translateX(-235px);
+  }
+  #header .inner {
+    transform: translateX(-190px);
+  }
+  #footer .inner {
+    width: 936px;
+  }
+}
+@media all and (min-width: 1174px) {
+  .panelOff {
+    #box {
+      transform: translateX(-160px);
+    }
+    #header .inner {
+      transform: translateX(-115px);
+    }
+  }
+}
+@media all and (min-width: 1234px) {
+  .panelOff {
+    #box {
+      transform: translateX(-100px);
+    }
+    #header .inner {
+      transform: translateX(-55px);
+    }
+  }
+}
+
+
 * {
   font-family: 'Open Sans', sans-serif;
   color: #000;
@@ -14,29 +127,30 @@
   background: none;
 }
 
-$statusColor1: rgb(150, 0, 150);
-$statusColor2: rgb(255, 0, 0);
-$statusColor3: rgb(255, 125, 0);
-$statusColor4: rgb(255, 255, 0);
-$statusColor5: rgb(0, 255, 0);
-$statusColor6: rgb(0, 100, 0);
-$statusColor7: rgb(150, 0, 0);
-$statusColor8: rgb(100, 100, 100);
-$statusColor9: rgb(113, 163, 200);
-$statusColor10: rgb(253, 153, 255);
+$statusColor1: #7f007f; ;
+$statusColor2: red;
+$statusColor3: #ff9000;;
+$statusColor4: #fffc00;;
+$statusColor5: #77dc00;
+$statusColor6: green;
+$statusColor7: #a60000;
+$statusColor8: #444444;
+$statusColor9: #6085dd;
+$statusColor10: #db72a5;
 
 $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $statusColor5, $statusColor6, $statusColor7, $statusColor8, $statusColor9, $statusColor10;
 
-@for $i from 1 to length($statusColors) {
+@for $i from 1 to 11 {
   $statusColor: nth($statusColors, $i);
 
   .task.bcStatus#{$i},
   .expanded.task.bcStatus#{$i} {
-    background: rgba($statusColor, 0.07);
+    background: rgba($statusColor, 0.1);
   }
 
   .task.expanded.bcStatus#{$i} {
-    background: linear-gradient(to bottom, rgba($statusColor, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(90deg, rgba(0,0,0,0) 100px, rgba(255, 255, 255, 1) 600px),
+    linear-gradient(to bottom, rgba($statusColor, 0.1) 0%, rgba(255, 255, 255, 1) 600px);
   }
 }
 
@@ -57,6 +171,13 @@ $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $stat
     height: 26px;
     line-height: 26px;
     box-shadow: none;
+    border-bottom: none;
+
+    & > a {
+      padding: 0 9px 6px;
+      text-transform: none;
+      line-height: 24px;
+    }
   }
 
   ul {
@@ -67,10 +188,6 @@ $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $stat
 
 #toppanel {
   height: 40px;
-}
-
-.navi-main-list li.level1 {
-  border-bottom: none;
 }
 
 #header {
@@ -107,25 +224,28 @@ div.task .subtasks {
   }
 
   > h3 {
-    height: 18px;
 
     .headLabel {
-      height: 18px;
       padding: 0;
-      line-height: 18px;
-    }
-
-    > .subtaskTrigger {
-      height: 18px;
     }
   }
 
+  .projectName {
+    font-size: 13px;
+    line-height: 22px;
+  }
+  .taskDate {
+    line-height: 22px;
+  }
+  .customer {
+    line-height: 22px;
+  }
   .dndHandle {
-    top: -4px;
+    top: 0;
+    left: 0;
   }
 
   .statusColor {
-    height: 18px;
     top: 0;
     border-left-width: 10px;
   }
@@ -170,3 +290,8 @@ div.task .subtasks {
 .tabContent .tab.comment {
   background: transparent;
 }
+
+#footer-address {
+  width: 300px;
+}
+

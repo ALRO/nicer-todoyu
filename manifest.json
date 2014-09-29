@@ -5,16 +5,22 @@
     "description": "Makes Todoyu nicer",
     "version": "0.1.0",
 
-    "permissions": [],
+    "permissions": [
+        "storage"
+    ],
 
     "web_accessible_resources": [
-        "css/todoyu.css"
+        "css/*",
+        "svg/*"
     ],
 
     "content_scripts": [{
         "js": [
             "lib/jquery-2.1.1.min.js",
             "js/todoyu.js"
+        ],
+        "css": [
+            "css/pre-load.css"
         ],
         "matches": [
             "https://*.todoyu.net/*"
