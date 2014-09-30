@@ -10,7 +10,6 @@ nicerTodoyu.init = function () {
     nicerTodoyu.loadCss();
     nicerTodoyu.clickableTaskNumbers();
     nicerTodoyu.hidableLeftBar();
-    nicerTodoyu.loadSvg();
 };
 
 
