@@ -7,6 +7,10 @@ body > * {
   opacity: 1 !important;
 }
 
+body {
+  background-color: #ededed;
+}
+
 /* icons */
 [class^=icon-] {
   background-size: 100%;
@@ -224,6 +228,8 @@ div.task .subtasks {
   }
 
   > h3 {
+	padding-bottom: 5px;
+	padding-top: 5px;
 
     .headLabel {
       padding: 0;
@@ -248,6 +254,7 @@ div.task .subtasks {
   .statusColor {
     top: 0;
     border-left-width: 10px;
+  	height: 32px;
   }
 }
 
@@ -262,6 +269,7 @@ div.task .subtasks {
   height: 22px;
   line-height: 22px;
   padding-top: 0;
+  padding-bottom: 5px;
 }
 
 .panelWidget h1 span.title {
@@ -295,3 +303,39 @@ div.task .subtasks {
   width: 300px;
 }
 
+#content .tabs li {
+  border-style: none;
+}
+
+#head {
+  background-color: #427eb3;
+  color: #ffffff;
+}
+
+#headlets > li > a {
+  border-style: none;
+  border-width: 0;
+}
+
+#navi-main-list li.item a.active, #navi-main-list li.item a:hover {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+#navi-main-list li.level1 > a {
+  color: #ffffff;
+  font-weight: normal;
+}
+
+.panel-toggle i {
+  margin: 7px;
+  opacity: 0.2;
+}
+
+ul#navi-main-list li ul li {
+  background-color: #fff;
+}
+
+ul#navi-main-list li ul li:hover {
+  background-color: #427eb3;
+}
