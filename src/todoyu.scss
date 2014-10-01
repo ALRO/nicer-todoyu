@@ -58,6 +58,9 @@ body {
     transition-timing-function: ease-in-out;
   }
 }
+#right {
+  margin-top: 15px;
+}
 
 #header {
   background: white;
@@ -261,19 +264,75 @@ div.task .subtasks {
 #box {
   padding-top: 40px;
 }
+#panel {
+  background: transparent;
 
-.panelWidget h1,
-.headerLine {
-  background: #ECECEC;
+  div.panelWidget {
+    padding: 0;
+    margin-bottom: 10px;
+    margin: 10px;
+    background: white;
+    border-bottom: none;
+
+    h1 {
+      
+      background: #6098C9;
+      border: none;
+      height: 32px;
+      line-height: 32px;
+      padding-top: 0;
+
+      border-radius: 0px;
+
+      span.title {
+        font-size: 15px;
+        line-height: 32px;
+
+        color: white;
+        text-shadow: noone;
+      }
+    }
+    #panelwidget-filterpresetlist-content {
+      .overflowHidden {
+        // overflow: visible;
+      }
+    }
+  }
+}
+
+.taskListing h1.headerLine {
+  background: #6098C9;
   border: none;
-  height: 22px;
+  height: 28px;
   line-height: 22px;
   padding-top: 0;
   padding-bottom: 5px;
+  border-radius: 0px;
+  margin-top: 0;
+  span {
+    color: white;
+    font-size: 14px;
+    text-shadow: none;
+    line-height: 32px;
+    &.taskDate {
+      width: 70px;
+    }
+  }
+}
+.taskListing .task .headLabel .taskDate {
+  width: 70px;
+}
+.taskListing .headerLine .projectName, .taskListing .task .headLabel .projectName {
+  width: 550px;
 }
 
 .panelWidget h1 span.title {
-  line-height: 22px;
+  font-size: 16px; 
+  line-height: 32px;
+}
+.task h3 .taskNumber {
+  line-height: 32px;
+  top: 0;
 }
 
 .panelFooter {
@@ -308,7 +367,7 @@ div.task .subtasks {
 }
 
 #head {
-  background-color: #427eb3;
+  background-color: #6098C9;
   color: #ffffff;
 }
 
@@ -337,5 +396,10 @@ ul#navi-main-list li ul li {
 }
 
 ul#navi-main-list li ul li:hover {
-  background-color: #427eb3;
+  background-color: #6098C9;
+}
+
+#content {
+  padding: 0;
+  margin: 0;
 }

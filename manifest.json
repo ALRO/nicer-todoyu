@@ -11,16 +11,19 @@
 
     "web_accessible_resources": [
         "css/*",
-        "svg/*"
+        "svg/*",
+        "js/override.js"
     ],
 
     "content_scripts": [{
         "js": [
             "lib/jquery-2.1.1.min.js",
+            "lib/chosen.jquery.min.js",
             "js/todoyu.js"
         ],
         "css": [
-            "css/pre-load.css"
+            "css/pre-load.css",
+            "lib/chosen.min.css"
         ],
         "matches": [
             "https://*.todoyu.net/*"
