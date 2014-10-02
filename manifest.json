@@ -11,8 +11,7 @@
 
     "web_accessible_resources": [
         "css/*",
-        "svg/*",
-        "js/override.js"
+        "svg/*"
     ],
 
     "content_scripts": [{
