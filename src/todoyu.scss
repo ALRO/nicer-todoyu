@@ -151,7 +151,8 @@ $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $stat
   $statusColor: nth($statusColors, $i);
 
   .task.bcStatus#{$i},
-  .expanded.task.bcStatus#{$i} {
+  .expanded.task.bcStatus#{$i},
+  .taskItem.bcStatus#{$i} {
     background: rgba($statusColor, 0.1);
   }
 
@@ -159,6 +160,12 @@ $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $stat
     background: linear-gradient(90deg, rgba(0,0,0,0) 100px, rgba(255, 255, 255, 1) 600px),
     linear-gradient(to bottom, rgba($statusColor, 0.1) 0%, rgba(255, 255, 255, 1) 600px);
   }
+}
+
+button {
+  background: white;
+  border-radius: 2px;
+  padding: 3px;
 }
 
 #navi-main {
@@ -217,7 +224,8 @@ $statusColors: $statusColor1, $statusColor2, $statusColor3, $statusColor4, $stat
 
 div.task,
 div.task .task:last-child,
-div.task .subtasks {
+div.task .subtasks,
+ul.ulListDotted li.listItem {
   border-color: #fff;
 }
 
@@ -300,7 +308,7 @@ div.task .subtasks {
   }
 }
 
-.taskListing h1.headerLine {
+h1.headerLine {
   background: #6098C9;
   border: none;
   height: 28px;
@@ -314,6 +322,14 @@ div.task .subtasks {
     font-size: 14px;
     text-shadow: none;
     line-height: 32px;
+    &.taskDate {
+      width: 70px;
+    }
+  }
+}
+
+.taskListing h1.headerLine {
+  span {
     &.taskDate {
       width: 70px;
     }
@@ -402,4 +418,7 @@ ul#navi-main-list li ul li:hover {
 #content {
   padding: 0;
   margin: 0;
+}
+.project .projectstatus {
+  height: 33px;
 }
