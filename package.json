@@ -1,22 +1,23 @@
 {
-  "name": "todoyu-ext",
-  "version": "0.2.1",
-  "description": "a chrome ext for todoyu",
-  "main": "gulpfile.js",
-  "dependencies": {},
-  "devDependencies": {
-    "gulp": "^3.8.8",
-    "gulp-sass": "^1.0.0"
-  },
-  "scripts": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ALRO/nicer-todoyu.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ALRO/nicer-todoyu/issues"
-  },
-  "homepage": "https://github.com/ALRO/nicer-todoyu"
+    "name": "todoyu-ext",
+    "version": "0.3.0",
+    "description": "a chrome ext for todoyu",
+    "main": "gulpfile.js",
+    "dependencies": {},
+    "devDependencies": {
+        "gulp": "^3.8.8",
+        "gulp-sass": "^1.0.0",
+        "gulp-zip": "^2.0.2"
+    },
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ALRO/nicer-todoyu.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ALRO/nicer-todoyu/issues"
+    },
+    "homepage": "https://github.com/ALRO/nicer-todoyu"
 }

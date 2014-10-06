@@ -20,7 +20,6 @@ nicerTodoyu.init = function() {
  */
 nicerTodoyu.loadAssets = function() {
     $('<link rel="stylesheet" type="text/css" href="' + chrome.extension.getURL("css/todoyu.css") + '" >').appendTo("head");
-    $('<script src="' + chrome.extension.getURL("js/override.js") + '"></script>').appendTo('body');
 };
 
 
