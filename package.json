@@ -1,13 +1,13 @@
 {
   "name": "todoyu-ext",
-  "version": "0.3.0",
+  "version": "0.4.0-dev",
   "description": "a chrome ext for todoyu",
   "main": "gulpfile.js",
   "dependencies": {},
   "devDependencies": {
     "gulp": "^3.8.8",
     "gulp-sass": "^1.0.0",
-    "gulp-zip": "^2.0.2",
+    "gulp-zip": "^2.0.2"
   },
   "scripts": {},
   "repository": {
