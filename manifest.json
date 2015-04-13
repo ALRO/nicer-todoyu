@@ -11,13 +11,17 @@
 
     "web_accessible_resources": [
         "css/*",
-        "svg/*"
+        "svg/*",
+        "js/*",
+        "lib/*"
     ],
 
     "content_scripts": [{
         "js": [
             "lib/jquery-2.1.1.min.js",
-            "js/todoyu.js"
+            "lib/echarts-all.js",
+            "js/todoyu.js",
+            "js/nicerTodoyu/search.js"
         ],
         "css": [
             "css/pre-load.css"

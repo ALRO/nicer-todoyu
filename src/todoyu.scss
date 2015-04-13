@@ -69,7 +69,24 @@ body {
 #panel {
   margin-top: 30px;
   transform-origin: 100% 100%;
+  select {
+  	height: auto !important;
+  	option {
+  		padding: 3px 10px;
+  	}
+  }
+  div.panelWidget {
+  	h2 {
+		padding: 10px;
+		font-size: 14px;
+  	}
+  }
 }
+
+#panelwidget-taskbookmarks form {
+	margin: 7px;
+}
+
 
 .panelOff {
   .panel-toggle {
