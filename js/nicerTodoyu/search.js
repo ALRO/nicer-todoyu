@@ -185,6 +185,19 @@ nicerTodoyu.search.init = function () {
 			}
 		});
 
+		var $burndownDaysInput2 = $('<input type="text" id="burndownDaysInput2" style="width: 400px">');
+		$burndownDaysInput2.insertAfter($widgetArea);
+
+		chrome.storage.local.get(function (result) {
+
+			if (result['burndownDays2']) {
+				$burndownDaysInput2.val(result['burndownDays2']);
+			} else {
+				$burndownDaysInput2.val('01.01.10');
+				chrome.storage.local.set({burndownDays2: '01.01.10'});
+			}
+		});
+
 		$tmp = $('<button id="burndownDaysSave">Save days settings</button>');
 		$tmp.insertAfter($widgetArea);
 		$tmp.on('click', nicerTodoyu.search.saveDaysSetting.bind(this));
@@ -197,6 +210,8 @@ nicerTodoyu.search.init = function () {
 nicerTodoyu.search.saveDaysSetting = function () {
 	var val = $('#burndownDaysInput').val();
 	chrome.storage.local.set({burndownDays: val});
+	var val2 = $('#burndownDaysInput2').val();
+	chrome.storage.local.set({burndownDays2: val2});
 };
 
 /**
@@ -257,6 +272,8 @@ nicerTodoyu.search.makeTheBurndown = function () {
 	self._setData(data.data);
 
 	var chart = echarts.init($chart[0]);
+
+	console.log(self.data);
 
 	chart.setOption({
 		title: {
@@ -393,6 +410,20 @@ nicerTodoyu.search._setData = function (data) {
 	// We start collecting our data
 	self.data.tasks = data;
 
+	var minDate = new Date("20" + $('#burndownDaysInput2').val().split(".").reverse().join("."));
+
+	self.data.tasks = self.data.tasks.map(function(item){
+
+		item.timeUsed = item.timeUsed.filter(function(subitem){
+			var myDate = new Date("20" + subitem.date.split(".").reverse().join("."));
+			return myDate >= minDate;
+		});
+		return item;
+	});
+
+
+	console.log(self.data.tasks);
+
 	// First, we count a week total of all times
 	self.data.weekTotal = {};
 	self.data.weekTotal.timeExpected = self._sum(self.data.tasks, "timeExpected");
@@ -410,7 +441,7 @@ nicerTodoyu.search._setData = function (data) {
 	self.data.daysSubtotal = self.data.days.map(function (e, i) {
 		// sum of the first i+1 elements
 		return self.data.days.slice(0, i + 1).reduce(function (cur, prev) {
-			return prev + parseFloat(cur);
+			return prev - (-parseFloat(cur));
 		})
 	}, 0);
 

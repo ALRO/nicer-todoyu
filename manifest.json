@@ -3,7 +3,7 @@
 
     "name": "Nicer Todoyu",
     "description": "Makes Todoyu nicer",
-    "version": "0.4.0-dev",
+    "version": "0.4.0",
 
     "permissions": [
         "storage"
